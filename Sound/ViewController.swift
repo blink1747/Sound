@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     var player = AVAudioPlayer()
     
+    @IBOutlet weak var NameofSong: UILabel!
+    
     let songsName = ["AgeOfWorry", "LeavingOnTheJetPlane", "HeyJude", "Bimbaakash4" , "Prayas5", "Aaudai6", "Syndicate7", "Gede8", "Baal9", "ApnaTime10"]
     
     let songsCount = 10
@@ -81,6 +83,7 @@ class ViewController: UIViewController {
         let audioPath = Bundle.main.path(forResource: songsName[currentSong], ofType: "mp3")
         do {
             player = try AVAudioPlayer (contentsOf: URL(fileURLWithPath: audioPath!))
+            NameofSong.text = songsName[currentSong]
         } catch {
             print("Error Page")
         }
