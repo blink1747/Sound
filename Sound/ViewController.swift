@@ -23,13 +23,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var volumeSlider: UISlider!
     
-    @IBAction func Next(_ sender: Any) {
+    func Next() {
         currentSong += 1
         if currentSong>songsCount-1 {currentSong = songsCount-1}
         playSong(currentSong)
     }
     
-    @IBAction func Back(_ sender: Any) {
+    func Back() {
         currentSong -= 1
               print(currentSong)
         if currentSong<0 {
@@ -95,10 +95,10 @@ class ViewController: UIViewController {
     @objc func swipped(gesture: UISwipeGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             if swipeGesture.direction == UISwipeGestureRecognizer.Direction.right {
-                Back(currentSong)
+                Back()
                 
             } else {
-                Next(currentSong)
+                Next()
             }
         }
     }
